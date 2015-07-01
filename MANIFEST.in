@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include product_configurator *.css
+recursive-include product_configurator *.csv
+recursive-include product_configurator *.html
+recursive-include product_configurator *.ico
+recursive-include product_configurator *.js
+recursive-include product_configurator *.json
+recursive-include product_configurator *.md
+recursive-include product_configurator *.png
+recursive-include product_configurator *.py
+recursive-include product_configurator *.svg
+recursive-include product_configurator *.txt
+recursive-exclude product_configurator *.pyc
