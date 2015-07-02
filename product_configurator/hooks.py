@@ -33,6 +33,9 @@ app_version = "0.0.1"
 # }
 
 fixtures = ['Custom Field']
+doctype_js = {
+        "Quotation": "product_configurator/quotation.js"
+        }
 
 # Generators
 # ----------
@@ -75,6 +78,11 @@ fixtures = ['Custom Field']
 # 		"on_trash": "method"
 #	}
 # }
+doc_event = {
+    "Quotation": {
+        "validate": "product_configurator.product_configurator.quotation.validate_product_configuration_compatibility"
+    }
+}
 
 # Scheduled Tasks
 # ---------------
