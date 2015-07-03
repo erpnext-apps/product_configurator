@@ -1,0 +1,16 @@
+[
+ {
+  "custom_format": 1, 
+  "disabled": 0, 
+  "doc_type": "Quotation", 
+  "docstatus": 0, 
+  "doctype": "Print Format", 
+  "format_data": null, 
+  "html": "{% if doc.set(\"print_templates\", {\"items\": \"product_configurator/templates/print_formats/product_configuration.html\"}) %}{% endif %}\n{% include \"templates/print_formats/standard.html\" %}", 
+  "modified": "2015-07-02 18:21:26.390762", 
+  "name": "Product Configuration Quotation", 
+  "print_format_builder": 0, 
+  "print_format_type": "Server", 
+  "standard": "Yes"
+ }
+]

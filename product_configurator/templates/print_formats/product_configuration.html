@@ -1,0 +1,44 @@
+{%- if data -%}
+<div>
+	<table class="table table-bordered table-condensed">
+		<thead>
+			<tr>
+				<th style="width: 5%; min-width: 40px">Sr</th>
+				<th style="width: 15%;"></th>
+				<th style="width: 5%;" class="text-right">{{ _("Qty") }}</th>
+				<th style="width: 30%;">{{ _("Description") }}</th>
+				<th style="width: 15%;" class="text-right">{{ _(table_meta.get_field("price_list_rate").label) }}</th>
+				<th style="width: 15%;" class="text-right">{{ _(table_meta.get_field("discount_percentage").label) }}</th>
+				<th style="width: 15%;" class="text-right">{{ _(table_meta.get_field("rate").label) }}</th>
+				<th style="width: 15%;" class="text-right">{{ _(table_meta.get_field("amount").label) }}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for d in data %}
+			{% set config = doc.get("product_configuration", {"main_item": d.item_code}) %}
+			{% set rowspan = 1 + (config|len) %}
+			<tr>
+				<td rowspan={{ rowspan }}>{{ d.idx }}</td>
+				<td class="strong">{{ d.get_formatted("item_name", doc) }}</td>
+				<td class="strong text-right">{{ d.get_formatted("qty", doc) }}</td>
+				<td class="strong">{{ d.get_formatted("description", doc) }}</td>
+				<td rowspan={{ rowspan }} class="text-right">{{ d.get_formatted("price_list_rate", doc) }}</td>
+				<td rowspan={{ rowspan }} class="text-right">{{ d.get_formatted("discount_percentage", doc) }}</td>
+				<td rowspan={{ rowspan }} class="text-right">{{ d.get_formatted("rate", doc) }}</td>
+				<td rowspan={{ rowspan }} class="text-right">{{ d.get_formatted("amount", doc) }}</td>
+			</tr>
+			{% if config %}
+			{% for c in config %}
+			<tr>
+				<td>{{ c.get_formatted("label", doc) }}</td>
+				<td class="text-right">{% if c.sub_quantity %}{{ c.get_formatted("sub_quantity", doc) }}{% endif %}</td>
+				<td>{{ c.get_formatted("description", doc) }}</td>
+			</tr>
+			{% endfor %}
+			{% endif %}
+			
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{%- endif -%}

@@ -32,7 +32,7 @@ app_version = "0.0.1"
 #	"Role": "home_page"
 # }
 
-fixtures = ['Custom Field']
+fixtures = ['Custom Field', 'Print Format']
 doctype_js = {
         "Quotation": "product_configurator/quotation.js"
         }

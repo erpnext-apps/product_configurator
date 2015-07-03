@@ -81,4 +81,3 @@ def validate_product_configuration_compatibility(doc, method=None):
 			if compatibility.max_quantity and config.sub_quantity > compatibility.max_quantity:
 				uom = frappe.db.get_value("Item", config.item, "stock_uom")
 				frappe.throw(_("Sub Product: {0} cannot have more than {1} {2}").format(config.item, compatibility.max_quantity, uom))
-			
