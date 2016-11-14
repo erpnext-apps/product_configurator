@@ -10,6 +10,8 @@ app_color = "grey"
 app_email = "matt@ixsystems.com"
 app_version = "0.0.1"
 
+hide_in_installer = True
+
 # Includes in <head>
 # ------------------
 
